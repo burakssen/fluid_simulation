@@ -40,11 +40,11 @@ private:
     float m_velocityDamping = 0.99f;
     std::shared_ptr<HashGrid> m_hashGrid = nullptr;
     Vector2 m_gravity = {0.0f, 1.0f};
-    float m_restDensity = 7.0f;
+    float m_restDensity = 10.0f;
     float m_K_Near = 3.0f;
     float m_K = 0.5f;
-    float m_interactionRadius = 25.0f;
+    float m_interactionRadius = 30.0f;
     // Viscosity parameters
     float m_sigma = -0.5f;
-    float m_beta = 0.0f;
+    float m_beta = -0.0005f;
 };

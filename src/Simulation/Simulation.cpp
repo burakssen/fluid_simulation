@@ -21,6 +21,11 @@ void Simulation::Update(float deltaTime)
     this->DoubleDensityRelaxation(deltaTime);
     this->WorldBoundary();
     this->ComputeNextVelocity(deltaTime);
+
+    for (int i = 0; i < this->m_particles.size(); i++)
+    {
+        this->m_particles[i]->Update();
+    }
 }
 
 void Simulation::Draw()
@@ -126,6 +131,7 @@ void Simulation::ApplyGravity(float deltaTime)
 
 void Simulation::DoubleDensityRelaxation(float deltaTime)
 {
+
     for (int i = 0; i < this->m_particles.size(); i++)
     {
         float density = 0.0f;

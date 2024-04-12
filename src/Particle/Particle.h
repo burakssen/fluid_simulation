@@ -12,6 +12,7 @@ public:
 
     void Draw();
 
+    void Update();
     void SetPosition(Vector2 position);
     void SetPreviousPosition(Vector2 previousPosition);
     void SetVelocity(Vector2 velocity);
@@ -28,3 +29,6 @@ private:
     Vector2 m_velocity = Vector2Zero();
     Color m_color = {40, 176, 255, 255};
 };
+
+// hsva(202.047, 198%, 58%, 1)
+// hsva(0, 198%, 51%, 1)
