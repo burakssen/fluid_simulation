@@ -62,8 +62,8 @@ void Simulation::InstantiateParticles()
 
     float offsetBetweenParticles = 10.0f;
 
-    float offsetX = GetScreenWidth() / 2 - (xParticles * offsetBetweenParticles) / 2;
-    float offsetY = GetScreenHeight() / 2 - (yParticles * offsetBetweenParticles) / 2;
+    float offsetX = GetScreenWidth() / 2 - (xParticles * offsetBetweenParticles) / 2 + GetRandomValue(-GetScreenWidth() / 2, GetScreenWidth() / 2);
+    float offsetY = GetScreenHeight() / 2 - (yParticles * offsetBetweenParticles) / 2 + GetRandomValue(-100, 100);
 
     for (int i = 0; i < xParticles; i++)
     {
@@ -228,11 +228,9 @@ void Simulation::Viscosity(float deltaTime)
 
 void Simulation::HandleInput()
 {
-    if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
+    if (IsKeyPressed(KEY_R))
     {
-        Vector2 mousePosition = GetMousePosition();
-        std::shared_ptr<Particle> particle = std::make_shared<Particle>(mousePosition);
-        this->m_particles.push_back(particle);
-        this->m_amountOfParticles++;
+        this->m_particles.clear();
+        this->InstantiateParticles();
     }
 }
